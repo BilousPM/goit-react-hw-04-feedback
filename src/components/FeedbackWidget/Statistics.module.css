@@ -1,0 +1,31 @@
+p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.button{
+  margin-right: 10px;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: rgb(255, 245, 60);
+  font-weight: 600;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rgba(16, 112, 112, 0.72);
+}
+
+.title {
+  margin-bottom: 25px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+p:not(:last-child) {
+  margin-bottom: 5px;
+}
