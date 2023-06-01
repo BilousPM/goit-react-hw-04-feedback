@@ -1,24 +1,23 @@
-import React, { Component } from "react";
-import FeedbackOptions from "./FeedbackWidget/FeedbackOptions";
+import React, { Component } from 'react';
+import FeedbackOptions from './FeedbackWidget/FeedbackOptions';
 import Statistics from './FeedbackWidget/Statistics';
-import Section from "./FeedbackWidget/Section";
+import Section from './FeedbackWidget/Section';
 import Notification from './FeedbackWidget/Notification';
 
 class App extends Component {
-
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-   onLeaveFeedback = (item) => {
-    this.setState(prevState => ({[item]: prevState[item] + 1}))
+  onLeaveFeedback = item => {
+    this.setState(prevState => ({ [item]: prevState[item] + 1 }));
   };
 
   countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state
-    return good + neutral + bad
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
 
   countPositiveFeedbackPercentage = () => {
@@ -39,24 +38,28 @@ class App extends Component {
     return (
       <div>
         <Section title="Please Leave feedback">
-          < FeedbackOptions
-          options={Object.keys(this.state)}
-          onClick={this.onLeaveFeedback} />
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onClick={this.onLeaveFeedback}
+          />
         </Section>
 
         <Section title="Statistics">
-          {total ? (<Statistics
+          {total ? (
+            <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
               total={this.countTotalFeedback()}
               positivePersentage={total}
-          />) : (<Notification message="There is no feedback" />)
-          }
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
         </Section>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
